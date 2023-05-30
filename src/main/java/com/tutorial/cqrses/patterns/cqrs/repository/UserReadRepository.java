@@ -9,7 +9,6 @@ import java.util.HashMap;
 
 public class UserReadRepository {
     private Map<String, UserAddress> userAddress = new HashMap<>();
-
     private Map<String, UserContact> userContact = new HashMap<>();
 
     public void addUserAddress(String id, UserAddress user) {

@@ -28,29 +28,25 @@ public class UserUtility {
                 UserAddressAddedEvent e = (UserAddressAddedEvent) event;
                 Address address = new Address(e.getCity(), e.getState(), e.getPostCode());
                 if (user != null)
-                    user.getAddresses()
-                        .add(address);
+                    user.getAddresses().add(address);
             }
             if (event instanceof UserAddressRemovedEvent) {
                 UserAddressRemovedEvent e = (UserAddressRemovedEvent) event;
                 Address address = new Address(e.getCity(), e.getState(), e.getPostCode());
                 if (user != null)
-                    user.getAddresses()
-                        .remove(address);
+                    user.getAddresses().remove(address);
             }
             if (event instanceof UserContactAddedEvent) {
                 UserContactAddedEvent e = (UserContactAddedEvent) event;
                 Contact contact = new Contact(e.getContactType(), e.getContactDetails());
                 if (user != null)
-                    user.getContacts()
-                        .add(contact);
+                    user.getContacts().add(contact);
             }
             if (event instanceof UserContactRemovedEvent) {
                 UserContactRemovedEvent e = (UserContactRemovedEvent) event;
                 Contact contact = new Contact(e.getContactType(), e.getContactDetails());
                 if (user != null)
-                    user.getContacts()
-                        .remove(contact);
+                    user.getContacts().remove(contact);
             }
         }
 

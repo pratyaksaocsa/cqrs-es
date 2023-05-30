@@ -39,8 +39,7 @@ public class UserAggregate {
 
         List<Contact> contactsToRemove = user.getContacts()
             .stream()
-            .filter(c -> !command.getContacts()
-                .contains(c))
+            .filter(c -> !command.getContacts().contains(c))
             .collect(Collectors.toList());
         for (Contact contact : contactsToRemove) {
             UserContactRemovedEvent contactRemovedEvent = new UserContactRemovedEvent(contact.getType(), contact.getDetail());
@@ -50,8 +49,7 @@ public class UserAggregate {
 
         List<Contact> contactsToAdd = command.getContacts()
             .stream()
-            .filter(c -> !user.getContacts()
-                .contains(c))
+            .filter(c -> !user.getContacts().contains(c))
             .collect(Collectors.toList());
         for (Contact contact : contactsToAdd) {
             UserContactAddedEvent contactAddedEvent = new UserContactAddedEvent(contact.getType(), contact.getDetail());
@@ -61,8 +59,7 @@ public class UserAggregate {
 
         List<Address> addressesToRemove = user.getAddresses()
             .stream()
-            .filter(a -> !command.getAddresses()
-                .contains(a))
+            .filter(a -> !command.getAddresses().contains(a))
             .collect(Collectors.toList());
         for (Address address : addressesToRemove) {
             UserAddressRemovedEvent addressRemovedEvent = new UserAddressRemovedEvent(address.getCity(), address.getState(), address.getPostcode());
@@ -72,8 +69,7 @@ public class UserAggregate {
 
         List<Address> addressesToAdd = command.getAddresses()
             .stream()
-            .filter(a -> !user.getAddresses()
-                .contains(a))
+            .filter(a -> !user.getAddresses().contains(a))
             .collect(Collectors.toList());
         for (Address address : addressesToAdd) {
             UserAddressAddedEvent addressAddedEvent = new UserAddressAddedEvent(address.getCity(), address.getState(), address.getPostcode());
