@@ -47,8 +47,7 @@ public class UserProjector {
             .get(address.getState()))
             .orElse(new HashSet<>());
         addresses.add(address);
-        userAddress.getAddressByRegion()
-            .put(address.getState(), addresses);
+        userAddress.getAddressByRegion().put(address.getState(), addresses);
         readRepository.addUserAddress(userId, userAddress);
     }
 
@@ -56,8 +55,7 @@ public class UserProjector {
         Address address = new Address(event.getCity(), event.getState(), event.getPostCode());
         UserAddress userAddress = readRepository.getUserAddress(userId);
         if (userAddress != null) {
-            Set<Address> addresses = userAddress.getAddressByRegion()
-                .get(address.getState());
+            Set<Address> addresses = userAddress.getAddressByRegion().get(address.getState());
             if (addresses != null)
                 addresses.remove(address);
             readRepository.addUserAddress(userId, userAddress);
@@ -72,8 +70,7 @@ public class UserProjector {
             .get(contact.getType()))
             .orElse(new HashSet<>());
         contacts.add(contact);
-        userContact.getContactByType()
-            .put(contact.getType(), contacts);
+        userContact.getContactByType().put(contact.getType(), contacts);
         readRepository.addUserContact(userId, userContact);
     }
 
@@ -81,8 +78,7 @@ public class UserProjector {
         Contact contact = new Contact(event.getContactType(), event.getContactDetails());
         UserContact userContact = readRepository.getUserContact(userId);
         if (userContact != null) {
-            Set<Contact> contacts = userContact.getContactByType()
-                .get(contact.getType());
+            Set<Contact> contacts = userContact.getContactByType().get(contact.getType());
             if (contacts != null)
                 contacts.remove(contact);
             readRepository.addUserContact(userId, userContact);
