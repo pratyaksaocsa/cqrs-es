@@ -1,5 +1,6 @@
 package com.tutorial.cqrses.patterns.escqrs.aggregates;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,6 +32,14 @@ public class UserAggregate {
         UserCreatedEvent event = new UserCreatedEvent(command.getUserId(), command.getFirstName(), command.getLastName());
         writeRepository.addEvent(command.getUserId(), event);
         return Arrays.asList(event);
+    }
+
+    public void handleCreateUserCommandtoDB(CreateUserCommand command) throws SQLException {
+        UserCreatedEvent event = 
+            new UserCreatedEvent(command.getUserId(),
+            command.getFirstName(), 
+            command.getLastName());
+        writeRepository.addEventToDB(command.getUserId(), event);
     }
 
     public List<Event> handleUpdateUserCommand(UpdateUserCommand command) {

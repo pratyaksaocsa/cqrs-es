@@ -20,6 +20,8 @@
     <jacoco.unit-tests.limit.class-complexity>20</jacoco.unit-tests.limit.class-complexity>
     <jacoco.unit-tests.limit.method-complexity>5</jacoco.unit-tests.limit.method-complexity>
     <lombok.version>1.16.0</lombok.version>
+    <mysqlconnector.version>8.0.29</mysqlconnector.version>
+    <gson.version>2.10.1</gson.version>
   </properties>
   <dependencies>
     <dependency>
@@ -40,6 +42,17 @@
       <version>${lombok.version}</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysqlconnector.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>${gson.version}</version>
+  </dependency>
   </dependencies>
   <build>
     <plugins>
